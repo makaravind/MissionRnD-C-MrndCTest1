@@ -26,8 +26,27 @@ Difficulty : Hard
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <malloc.h>
 
 char * concat_4strings(char *s1, char *s2, char *s3, char *s4){
+
+	char *final = (char*)malloc(sizeof(char) * strlen(s1) + strlen(s2) + strlen(s3) + strlen(s4));
+	int fptr = 0;
+	if (s1 == NULL || s2 == NULL || s3 == NULL || s4 == NULL) return NULL;
+	else{
+		for (int i = 0; i < strlen(s1); i++)
+			final[fptr++] = s1[i];
+
+		for (int i = 0; i < strlen(s2); i++)
+			final[fptr++] = s2[i];
+
+		for (int i = 0; i < strlen(s3); i++)
+			final[fptr++] = s3[i];
+
+		for (int i = 0; i < strlen(s4); i++)
+			final[fptr++] = s4[i];
+	}
 	//Return the new string created.
-	return NULL;
+	final[fptr] = '\0';
+	return final;
 }
